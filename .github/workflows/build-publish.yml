@@ -36,8 +36,8 @@ jobs:
          env:  
            JF_URL: ${{ vars.JF_URL }}
          with:
-           oidc-provider-name: ${{ env.OIDC_PROVIDER }}
-           oidc-audience: ${{ env.OIDC_AUDIENCE }}
+          JF_URL: ${{ vars.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}              
 
        - name: Set CLI Config
          run: jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
@@ -66,7 +66,7 @@ jobs:
              jf build-scan --vuln --fail=false
           else
              echo false
-             jf build-scan --fail=false
+            # jf build-scan --fail=false
           fi
           env:
           ENABLE_VULN_SCAN: false  # Set to true when needed
