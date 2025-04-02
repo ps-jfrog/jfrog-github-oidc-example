@@ -64,7 +64,7 @@ jobs:
              jf build-scan --vuln --fail=false
           else
              echo false
-            # jf build-scan --fail=false
+             jf build-scan --fail=false
           fi
           env:
           ENABLE_VULN_SCAN: false  # Set to true when needed
